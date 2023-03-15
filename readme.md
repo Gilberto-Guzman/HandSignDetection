@@ -5,4 +5,3 @@
 - mediapipe 0.9.1.0
 - opencv-python 4.5.4.60
 - tensorflow 2.9.1
-- teachable machine
