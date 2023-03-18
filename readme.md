@@ -1,43 +1,43 @@
-# Para la realización de este proyecto se utilizaron las siguientes herramientas/bibliotecas:
+# The following tools/libraries were used to carry out this project:
 
-## Interprete
+## Interpreter
 - python 3.7
 
-## Librerias
+## Libraries
 - cvzone 1.5.6
 - mediapipe 0.9.1.0
 - opencv-python 4.5.4.60
 - tensorflow 2.9.1
 
-## Servidor en la nube
+## Cloud Server
 - teachable machine
 
-# Explicación del codigo:
+# Explanation of the code:
 
 ## datacollection.py
 
-El código importa algunos módulos como cv2, numpy, math, time y HandDetector de la biblioteca cvzone. Luego, inicializa la cámara capturando un objeto de VideoCapture con índice 0 (la cámara predeterminada) y un detector de manos con un límite máximo de detección de una mano.
+The code imports some modules like cv2, numpy, math, time and HandDetector from the cvzone library. It then initializes the camera by capturing a VideoCapture object with index 0 (the default camera) and a hand detector with a maximum detection limit of one hand.
 
-Se definen algunas variables como offset, imgSize y folder. El bucle while se ejecuta indefinidamente y en cada iteración, se lee un cuadro de la cámara y se detecta la mano utilizando el detector de manos.
+Some variables such as offset, imgSize and folder are defined. The while loop runs indefinitely and on each iteration, one frame is read from the camera and the hand is detected using the hand detector.
 
-Si se detecta una mano, se calcula el cuadro delimitador que encierra la mano. Se crea una imagen en blanco del tamaño especificado por imgSize y se ajusta la imagen recortada de la mano para que tenga la misma relación de aspecto que la imagen en blanco.
+If a hand is detected, the bounding box enclosing the hand is computed. A blank image of the size specified by imgSize is created, and the cropped image of the hand is scaled to have the same aspect ratio as the blank image.
 
-Si la relación de aspecto de la imagen recortada es mayor que 1, significa que la imagen es más alta que ancha. Por lo tanto, se redimensiona la imagen recortada para que tenga una altura de imgSize y se ajusta el ancho para mantener la relación de aspecto original. Si la relación de aspecto es menor que 1, se hace lo contrario.
+If the aspect ratio of the cropped image is greater than 1, it means that the image is taller than it is wide. Therefore, the cropped image is resized to have a height of imgSize and the width is adjusted to maintain the original aspect ratio. If the aspect ratio is less than 1, the reverse is done.
 
-La imagen redimensionada se coloca en el centro de la imagen en blanco. Se muestran la imagen recortada y la imagen en blanco en ventanas separadas. Si se presiona la tecla "s", se guarda la imagen en blanco en la carpeta especificada por folder con un nombre de archivo único basado en la hora actual. El contador se incrementa en uno y se muestra por pantalla.
+The resized image is placed in the center of the blank image. The cropped image and the blank image are displayed in separate windows. If the "s" key is pressed, the blank image is saved to the folder specified by folder with a unique file name based on the current time. The counter is incremented by one and is displayed on the screen.
 
 ## test.py
 
-Este es un script de Python que utiliza la biblioteca OpenCV para capturar imágenes de video desde la cámara de la computadora, detectar una mano y predecir la letra que se muestra en la palma de la mano.
+This is a Python script that uses the OpenCV library to capture video images from the computer's camera, detect a hand, and predict the letter displayed on the palm of the hand.
 
-El código importa varios módulos de Python, incluidos cv2, numpy y math, y también importa dos módulos específicos para la detección de manos y clasificación de imágenes, llamados HandDetector y Classifier, respectivamente.
+The code imports several Python modules, including cv2, numpy, and math, and also imports two specific modules for hand detection and image classification, called HandDetector and Classifier, respectively.
 
-A continuación, se inicializa una instancia de HandDetector para detectar una mano en cada fotograma de video y una instancia de Classifier para predecir la letra que se muestra en la palma de la mano.
+Next, a HandDetector instance is initialized to detect a hand in each video frame, and a Classifier instance is initialized to predict the letter displayed on the palm of the hand.
 
-Luego, se define una serie de variables, incluidas offset, imgSize y folder. Estas variables se utilizan para redimensionar y recortar las imágenes de la mano.
+Then, a number of variables are defined, including offset, imgSize, and folder. These variables are used to resize and crop the images of the hand.
 
-El código luego entra en un bucle while infinito que captura continuamente fotogramas de video de la cámara y procesa la imagen para detectar la mano y predecir la letra.
+The code then goes into an infinite while loop that continuously captures video frames from the camera and processes the image to detect the hand and predict the handwriting.
 
-En el bucle, se lee cada fotograma de video y se llama a detector.findHands() para encontrar la mano en la imagen. Si se detecta una mano, se recorta y redimensiona la imagen para que se ajuste al tamaño deseado y se llama a classifier.getPrediction() para predecir la letra que se muestra en la palma de la mano.
+In the loop, each video frame is read and detector.findHands() is called to find the hand in the image. If a hand is detected, the image is cropped and resized to fit the desired size, and classifier.getPrediction() is called to predict the letter displayed on the palm of the hand.
 
-Finalmente, se dibujan cajas alrededor de la mano y se muestra la imagen procesada en una ventana de OpenCV. El bucle continúa hasta que el usuario presiona la tecla 'q' para salir del programa.
+Finally, boxes are drawn around the hand and the rendered image is displayed in an OpenCV window. The loop continues until the user presses the 'q' key to exit the program.
