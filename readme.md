@@ -1,4 +1,17 @@
-# The following tools/libraries were used to carry out this project:
+# HandSignDetection
+### Hi teacher, Next I will provide you with the corresponding work to deliver:
+
+## Code.
+
+Código: https://github.com/Gilberto-Guzman/HandSignDetection
+
+## Teach Video.
+
+https://www.youtube.com/watch?v=0X9li2Ge1QQ
+
+# Documentation.
+
+## The following tools/libraries were used to carry out this project:
 
 ## Interpreter
 - python 3.7
